@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductServiceService } from 'src/app/product-service.service';
+import { CartServicesService } from 'src/app/services/cart-services.service';
 
 @Component({
   selector: 'app-product-details',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
+  @Input() productDetails: any;
 
-  constructor() { }
+  constructor(
+    private productService: ProductServiceService,
+    private cartService: CartServicesService,
+    private route: ActivatedRoute
+
+  ) { }
 
   ngOnInit(): void {
   }
+  
 
 }

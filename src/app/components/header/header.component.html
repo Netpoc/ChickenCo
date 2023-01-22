@@ -10,16 +10,11 @@
                         <form action="#">
                             <select class="select-active">
                                 <option>All Categories</option>
-                                <option>Milks and Dairies</option>
-                                <option>Wines & Alcohol</option>
-                                <option>Clothing & Beauty</option>
-                                <option>Pet Foods & Toy</option>
-                                <option>Fast food</option>
-                                <option>Baking material</option>
-                                <option>Vegetables</option>
-                                <option>Fresh Seafood</option>
-                                <option>Noodles & Rice</option>
-                                <option>Ice cream</option>
+                                <option>Poultry</option>
+                                <option>Shop</option>
+                                <option>Pet Store</option>
+                                <option>Blog</option>
+                                <option>Supplies</option>
                             </select>
                             <input type="text" placeholder="Search for items..." />
                         </form>
@@ -110,7 +105,7 @@
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
                 <div class="logo logo-width-1 d-block d-lg-none">
-                    <a href="index.html"><img src="assets/images/theme/logo.svg" alt="logo" /></a>
+                    <a href="index.html"><img src="assets/images/theme/Coop_Logo.svg" alt="logo" /></a>
                 </div>
                 <div class="header-nav d-none d-lg-flex">
                     
@@ -177,38 +172,20 @@
                 </div>
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
-                        <div class="header-action-icon-2">
-                            <a href="shop-wishlist.html">
-                                <img alt="Nest" src="assets/images/theme/icons/icon-heart.svg" />
-                                <span class="pro-count white">4</span>
-                            </a>
-                        </div>
-                        <div class="header-action-icon-2">
+                            <div class="header-action-icon-2">
                             <a class="mini-cart-icon" href="#">
                                 <img alt="Nest" src="assets/images/theme/icons/icon-cart.svg" />
-                                <span class="pro-count white">2</span>
+                                <span class="pro-count white">{{cartService.numberOfItems}}</span>
                             </a>
                             <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                <ul>
+                                <ul *ngFor="let item of items">
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest" src="assets/images/shop/thumbnail-3.jpg" /></a>
+                                            <a [routerLink]="['/products', item?.id]"><img alt="Nest" [src]="item?.thumbnail" /></a>
                                         </div>
                                         <div class="shopping-cart-title">
-                                            <h4><a href="shop-product-right.html">Plain Striola Shirts</a></h4>
-                                            <h3><span>1 × </span>N800.00</h3>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="shopping-cart-img">
-                                            <a href="shop-product-right.html"><img alt="Nest" src="assets/images/shop/thumbnail-4.jpg" /></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="shop-product-right.html">Macbook Pro 2022</a></h4>
-                                            <h3><span>1 × </span>N3500.00</h3>
+                                            <h4><a [routerLink]="['/products', item?.id]">{{item.title}}</a></h4>
+                                            <h4><span>{{item.qty}} x </span>N{{item.price}}</h4>
                                         </div>
                                         <div class="shopping-cart-delete">
                                             <a href="#"><i class="fi-rs-cross-small"></i></a>
@@ -236,7 +213,7 @@
     <div class="mobile-header-wrapper-inner">
         <div class="mobile-header-top">
             <div class="mobile-header-logo">
-                <a href="index.html"><img src="assets/images/theme/logo.svg" alt="logo" /></a>
+                <a href="index.html"><img src="assets/images/theme/Coop_Logo.svg" alt="logo" /></a>
             </div>
             <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                 <button class="close-style search-close">

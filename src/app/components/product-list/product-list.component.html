@@ -136,12 +136,12 @@
                 <a href="shop-grid-right.html">{{ product.category }}</a>
               </div>
               <h2>
-                <a href="shop-product-right.html">{{ product.title }} </a>
+                <a [href]="['/product', product?.id]">{{ product.title }} </a>
               </h2>
               
               <div>
                 <span class="font-small text-muted"
-                  >Location <a href="vendor-details-1.html">Ikorodu</a></span
+                  >Location <a href="#">Ikorodu</a></span
                 >
               </div>
               <div class="product-card-bottom">

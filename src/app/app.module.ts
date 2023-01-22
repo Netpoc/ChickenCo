@@ -9,6 +9,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ProductListComponent,
     HeaderComponent,
     FooterComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
     
   ],
   imports: [
@@ -25,7 +27,10 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent}
+      { path: '', component: ProductListComponent},
+      { path: 'products/:id', component: ProductDetailsComponent},
+      { path: 'cart', component: CartComponent}
+
     ]),
   ],
   providers: [],
