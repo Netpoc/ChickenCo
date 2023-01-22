@@ -119,32 +119,12 @@
                   />
                   <img
                     class="hover-img"
-                    src="assets/images/shop/Old_Layer.jpg"
+                    [src]="product?.thumbnail"
                     alt="Old Layer Chicken"
                   />
                 </a>
               </div>
-              <div class="product-action-1">
-                <a
-                  aria-label="Add To Wishlist"
-                  class="action-btn"
-                  href="shop-wishlist.html"
-                  ><i class="fi-rs-heart"></i
-                ></a>
-                <a
-                  aria-label="Compare"
-                  class="action-btn"
-                  href="shop-compare.html"
-                  ><i class="fi-rs-shuffle"></i
-                ></a>
-                <a
-                  aria-label="Quick view"
-                  class="action-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#quickViewModal"
-                  ><i class="fi-rs-eye"></i
-                ></a>
-              </div>
+              
               <div
                 class="product-badges product-badges-position product-badges-mrg"
               >
@@ -158,14 +138,7 @@
               <h2>
                 <a href="shop-product-right.html">{{ product.title }} </a>
               </h2>
-              <div class="product-rate-cover">
-                <div class="product-rate d-inline-block">
-                  <div class="product-rating" style="width: 80%"></div>
-                </div>
-                <span class="font-small ml-5 text-muted">
-                  {{ product.rating }}</span
-                >
-              </div>
+              
               <div>
                 <span class="font-small text-muted"
                   >Location <a href="vendor-details-1.html">Ikorodu</a></span
@@ -174,7 +147,7 @@
               <div class="product-card-bottom">
                 <div class="product-price">
                   <span>N{{ product.price }}</span>
-                  <span class="old-price">N55.8</span>
+                  
                 </div>
                 <div class="add-cart">
                   <a class="add"
