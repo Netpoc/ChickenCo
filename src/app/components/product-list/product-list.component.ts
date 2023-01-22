@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CartServicesService } from 'src/app/services/cart-services.service';
 import { ProductsApiService } from 'src/app/services/product-service.service';
 
 @Component({
@@ -7,14 +9,28 @@ import { ProductsApiService } from 'src/app/services/product-service.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  @Input() productDetails: any;
   allProducts: any;
+  items = this.cartService.getItems();
+
+  
 
   constructor(
-    public productService: ProductsApiService
+    private cartService: CartServicesService,
+    private route: ActivatedRoute,
+    public productService: ProductsApiService,
+    
+    
   ) { }
   
   ngOnInit(): void {
     this.getAllProducts();
+
+    this.route.params.subscribe((param: any) => {
+      this.productDetail(param.id);
+    })
+    
+
   }
 
   public getAllProducts(){
@@ -23,13 +39,11 @@ export class ProductListComponent implements OnInit {
     })
   }
 
+  public productDetail(id: Number) {
+    this.productService.getProductsDetails(id).subscribe((res: any) => {
+      this.productDetails = res;
+    })
+  }
+
 }
 
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  qty: number;
-  thumbnail: string;
-}

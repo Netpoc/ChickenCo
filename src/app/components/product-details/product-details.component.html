@@ -1,1 +1,230 @@
-<p>product-details works!</p>
+<!--End header-->
+<main class="main" *ngIf="productDetails">
+    <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span></span> <a href="shop-grid-right.html">{{productDetails.category}}</a> <span></span> {{productDetails.brand}}
+            </div>
+        </div>
+    </div>
+    <div class="container mb-30">
+        <div class="row">
+            <div class="col-xl-11 col-lg-12 m-auto">
+                <div class="row">
+                    <div class="col-xl-9">
+                        <div class="product-detail accordion-detail">
+                            <div class="row mb-50 mt-30">
+                                <div class="col-md-6 col-sm-12 col-xs-12 mb-md-0 mb-sm-5">
+                                    <div class="detail-gallery">
+                                        <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+                                        <!-- MAIN SLIDES -->
+                                        <div class="product-image-slider">
+                                            <figure class="border-radius-10">
+                                                <img [src]="[productDetails?.thumbnail]" alt="product image" />
+                                            </figure>
+                                        <!-- THUMBNAILS -->
+                                        </div>
+                                    </div>
+                                    <!-- End Gallery -->
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="detail-info pr-30 pl-30" >
+                                        <span class="stock-status out-stock"> Sale Off </span>
+                                        <h2 class="title-detail">{{productDetails.title}}</h2>
+                                        <div class="product-detail-rating">
+                                            <div class="product-rate-cover text-end">
+                                                <div class="product-rate d-inline-block">
+                                                    <div class="product-rating" style="width: 90%"></div>
+                                                </div>
+                                                <span class="font-small ml-5 text-muted"> (32 reviews)</span>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix product-price-cover">
+                                            <div class="product-price primary-color float-left">
+                                                <span class="current-price text-brand">N{{productDetails.price}}</span>
+                                                <span>
+                                                    <span class="save-price font-md color3 ml-15">{{productDetails.discountPercentage}}% Off</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="short-desc mb-30">
+                                            <p class="font-lg">{{productDetails.description}}</p>
+                                        </div>
+                                        
+                                        <div class="detail-extralink mb-50">
+                                            <div class="detail-qty border radius">
+                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                                <input type="text" name="quantity" class="qty-val" value="1" min="1">
+                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                            </div>
+                                            <div class="product-extra-link2">
+                                                <button type="submit" class="button button-add-to-cart" (click)="addToCart(productDetails)"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
+                                                <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- Detail Info -->
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-60">
+                                <div class="col-12">
+                                    <h2 class="section-title style-1 mb-30">Related products</h2>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row related-products">
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="product-cart-wrap hover-up">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="shop-product-right.html" tabindex="0">
+                                                            <img class="default-img" src="assets/images/shop/product-2-1.jpg" alt="" />
+                                                            <img class="hover-img" src="assets/images/shop/product-2-2.jpg" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                        <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
+                                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                        <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                                                    </div>
+                                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                                        <span class="hot">Hot</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content-wrap">
+                                                    <h2><a href="shop-product-right.html" tabindex="0">Ulstra Bass Headphone</a></h2>
+                                                    <div class="rating-result" title="90%">
+                                                        <span> </span>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>N238.85 </span>
+                                                        <span class="old-price">N245.8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="product-cart-wrap hover-up">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="shop-product-right.html" tabindex="0">
+                                                            <img class="default-img" src="assets/images/shop/product-3-1.jpg" alt="" />
+                                                            <img class="hover-img" src="assets/images/shop/product-4-2.jpg" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                        <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
+                                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                        <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                                                    </div>
+                                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                                        <span class="sale">-12%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content-wrap">
+                                                    <h2><a href="shop-product-right.html" tabindex="0">Smart Bluetooth Speaker</a></h2>
+                                                    <div class="rating-result" title="90%">
+                                                        <span> </span>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>N138.85 </span>
+                                                        <span class="old-price">N145.8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="product-cart-wrap hover-up">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="shop-product-right.html" tabindex="0">
+                                                            <img class="default-img" src="assets/images/shop/product-4-1.jpg" alt="" />
+                                                            <img class="hover-img" src="assets/images/shop/product-4-2.jpg" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                        <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
+                                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                        <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                                                    </div>
+                                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                                        <span class="new">New</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content-wrap">
+                                                    <h2><a href="shop-product-right.html" tabindex="0">HomeSpeak 12UEA Goole</a></h2>
+                                                    <div class="rating-result" title="90%">
+                                                        <span> </span>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>N738.85 </span>
+                                                        <span class="old-price">N1245.8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6 d-lg-block d-none">
+                                            <div class="product-cart-wrap hover-up mb-0">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="shop-product-right.html" tabindex="0">
+                                                            <img class="default-img" src="assets/images/shop/product-5-1.jpg" alt="" />
+                                                            <img class="hover-img" src="assets/images/shop/product-3-2.jpg" alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                        <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
+                                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
+                                                        <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+                                                    </div>
+                                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                                        <span class="hot">Hot</span>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content-wrap">
+                                                    <h2><a href="shop-product-right.html" tabindex="0">Dadua Camera 4K 2022EF</a></h2>
+                                                    <div class="rating-result" title="90%">
+                                                        <span> </span>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>N89.8 </span>
+                                                        <span class="old-price">N98.8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 primary-sidebar sticky-sidebar mt-30">
+                        <div class="sidebar-widget widget-category-2 mb-30">
+                            <h5 class="section-title style-1 mb-30">Category</h5>
+                            <ul>
+                                <li>
+                                    <a href="shop-grid-right.html"> <img src="assets/images/theme/icons/category-1.svg" alt="" />Milks & Dairies</a><span class="count">30</span>
+                                </li>
+                                <li>
+                                    <a href="shop-grid-right.html"> <img src="assets/images/theme/icons/category-2.svg" alt="" />Clothing</a><span class="count">35</span>
+                                </li>
+                                <li>
+                                    <a href="shop-grid-right.html"> <img src="assets/images/theme/icons/category-3.svg" alt="" />Pet Foods </a><span class="count">42</span>
+                                </li>
+                                <li>
+                                    <a href="shop-grid-right.html"> <img src="assets/images/theme/icons/category-4.svg" alt="" />Baking material</a><span class="count">68</span>
+                                </li>
+                                <li>
+                                    <a href="shop-grid-right.html"> <img src="assets/images/theme/icons/category-5.svg" alt="" />Fresh Fruit</a><span class="count">87</span>
+                                </li>
+                            </ul>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
