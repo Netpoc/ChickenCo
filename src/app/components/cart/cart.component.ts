@@ -20,7 +20,7 @@ export class CartComponent {
   }
 
   //Calculate Total
-  public calculateTotal() {
+  protected calculateTotal() {
     return this.items.reduce((acc, prod) => acc += prod.price * prod.qty, 0)
   }
 

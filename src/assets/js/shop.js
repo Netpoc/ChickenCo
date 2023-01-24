@@ -99,4 +99,4 @@
         productDetails();
     });
 
-})(jQuery);
+});

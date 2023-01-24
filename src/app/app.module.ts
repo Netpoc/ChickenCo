@@ -31,7 +31,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     RouterModule.forRoot([
       { path: '', component: ProductListComponent},
       { path: 'products/:id', component: ProductDetailsComponent},
-      { path: 'cart', component: CartComponent}
+      { path: 'cart', component: CartComponent},
+      { path: 'checkout', component: CheckoutComponent}
 
     ]),
   ],
