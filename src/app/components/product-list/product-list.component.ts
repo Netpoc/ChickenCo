@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
   
 
   constructor(
-    private cartService: CartServicesService,
+    public cartService: CartServicesService,
     private route: ActivatedRoute,
     //public productService: ProductsApiService,
     
