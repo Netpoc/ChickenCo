@@ -45,7 +45,7 @@
                                     <ul *ngFor="let item of items">
                                         <li>
                                             <div class="shopping-cart-img">
-                                                <a [routerLink]="['/products', item?.id]"><img alt="Nest" [src]="item?.thumbnail" /></a>
+                                                <a [routerLink]="['/products', item?.id]"><img alt="Nest" [src]="item?.image" /></a>
                                             </div>
                                             <div class="shopping-cart-title">
                                                 <h4><a [routerLink]="['/products', item?.id]">{{item.title}}</a></h4>
@@ -172,7 +172,7 @@
                                 <ul *ngFor="let item of items">
                                     <li>
                                         <div class="shopping-cart-img">
-                                            <a [routerLink]="['/products', item?.id]"><img alt="Nest" [src]="item?.thumbnail" /></a>
+                                            <a [routerLink]="['/products', item?.id]"><img alt="Nest" [src]="item?.image" /></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a [routerLink]="['/products', item?.id]">{{item.title}}</a></h4>

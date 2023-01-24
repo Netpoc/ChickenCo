@@ -26,11 +26,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  qty: number;
-  thumbnail: string;
-}
+

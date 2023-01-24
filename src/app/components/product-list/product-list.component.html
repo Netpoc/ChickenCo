@@ -114,12 +114,12 @@
                 <a [routerLink]="['/products', product?.id]">
                   <img
                     class="default-img"
-                    [src]="product?.thumbnail"
+                    [src]="product?.image"
                     alt="Old Layer Chicken"
                   />
                   <img
                     class="hover-img"
-                    [src]="product?.thumbnail"
+                    [src]="product?.image"
                     alt="Old Layer Chicken"
                   />
                 </a>
@@ -141,7 +141,7 @@
               
               <div>
                 <span class="font-small text-muted"
-                  >Location <a href="#">Ikorodu</a></span
+                  >Location <a href="#">{{product.location}}</a></span
                 >
               </div>
               <div class="product-card-bottom">

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsApiService } from 'src/app/services/product-service.service';
 import { CartServicesService } from 'src/app/services/cart-services.service';
+import { Product, products } from 'src/app/products';
 
 @Component({
   selector: 'app-product-details',
@@ -9,7 +10,7 @@ import { CartServicesService } from 'src/app/services/cart-services.service';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  @Input() productDetails: any;
+  product: Product | any;
   items = this.cartService.getItems();
 
   //Add Item to Cart
@@ -31,16 +32,18 @@ export class ProductDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((param: any) => {
-      this.getProductDetails(param.id)
-    })
+    const routeParams = this.route.snapshot.paramMap;
+    const productIdFromRoute = Number(routeParams.get('id'));
+
+    this.product = products.find(product => product.id === productIdFromRoute);
+
   }
 
-  private getProductDetails(id: Number) {
-    this.productService.getProductsDetails(id).subscribe((res: any) => {
-      this.productDetails = res;
-    })
-  }
+  //private getProductDetails(id: Number) {
+    //this.productService.getProductsDetails(id).subscribe((res: any) => {
+      //this.productDetails = res;
+    //})
+  //}
   
 
 }
